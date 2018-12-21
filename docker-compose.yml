@@ -1,0 +1,17 @@
+version: "3.5"
+
+services:
+  front-end:
+    container_name: front-end
+    build:
+      context: .
+      dockerfile: ./front-end/Dockerfile
+    volumes:
+      - "./front-end:/usr/src/app"
+      - "/usr/src/app/node_modules"
+    ports:
+      - "4200:4200"
+      - "80:8888"
+      - "9222:9222"
+    environment:
+      - NODE_ENV=development
